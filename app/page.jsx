@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { BASE_URL } from "./constants";
 import MovieGrid from "./components/MovieGrid";
+import Modal from "./components/Modal";
 
 async function searchMovies(query){
   try {
@@ -49,10 +50,10 @@ export default function Home() {
             className="px-4 py-2 w-80 text-gray-900"
           />
           <button type="submit" className="ml-2 px-4 py-2 bg-blue-500 text-white rounded">Search</button>
-          </form>
+        </form>
         <MovieGrid movies={movies} handleMovieClick={handleMovieClick} />
       </main>
-
+      <Modal movie={selectedMovie} onClose={handleCloseModal} />
     </div>
   )
 }
